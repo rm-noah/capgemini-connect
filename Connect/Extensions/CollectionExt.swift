@@ -13,6 +13,10 @@ extension Collection where Element == Optional<Any> {
     func allNotNil() -> Bool {
         return !allNil()
     }
+    
+    func atleastOneNil() -> Bool {
+        return self.first(where: { $0 == nil }) != nil
+    }
 
     func atleastOneNotNil() -> Bool {
         return self.compactMap() { $0 }.count > 0
@@ -20,9 +24,5 @@ extension Collection where Element == Optional<Any> {
 
     func allNil() -> Bool {
         return self.compactMap() { $0 }.count == 0
-    }
-    
-    func atleastOneNil() -> Bool {
-        return self.compactMap() { $0 }.count < self.count
     }
 }

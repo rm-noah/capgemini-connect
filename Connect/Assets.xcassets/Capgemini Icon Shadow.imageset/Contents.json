@@ -1,12 +1,12 @@
 {
   "images" : [
     {
-      "filename" : "capgemini-icon.png",
+      "filename" : "capgemini-icon-128.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "capgemini-icon-1.png",
+      "filename" : "capgemini-icon-129.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
