@@ -16,6 +16,8 @@ The project requires an iPhone emulator, typically available through Xcode serve
 ### Installation
 1. Clone the repo
 `https://gitlab.com/capgemini-connect/capgemini-connect-ios.git`
+2. Download and Install CocoaPods from https://cocoapods.org
+3. Install IQKeyboardManagerSwift by running `pod install` in the directory of the project
 
 ## Contact
 Noah Quinn :: Project Manager (noah.quinn@capgemini.com)
