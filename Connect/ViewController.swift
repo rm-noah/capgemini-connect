@@ -14,6 +14,8 @@ class ViewController: UIViewController {
     var avCaptureSession: AVCaptureSession!
     var avPreviewLayer: AVCaptureVideoPreviewLayer!
     
+    let checkInEndpoint: String = "https://cm7oikm6cl.execute-api.eu-central-1.amazonaws.com/default/CheckInUser"
+    
     @IBOutlet weak var mainStack: UIStackView!
     
     override func viewDidLoad() {
@@ -107,6 +109,66 @@ class ViewController: UIViewController {
         }
         present(vc, animated: true)
     }
+    
+    func found(code: String) {
+        let now = Date()
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+        formatter.timeZone = TimeZone(secondsFromGMT: 0)
+        print(formatter.string(from: now))
+        
+        guard let url = URL(string: checkInEndpoint) else {
+            print("CheckIn Endpoint invalid")
+            return
+        }
+        
+        let defaults = UserDefaults.standard
+        let email: String? = defaults.string(forKey: "email_address") ?? nil
+        let surname: String? = defaults.string(forKey: "surname") ?? nil
+        
+        if (email == nil) {
+            let ac = UIAlertController(title: "Invalid Profile Configuration", message: "Check your profile contains all necessary information", preferredStyle: .alert)
+            ac.addAction(UIAlertAction(title: "Close", style: .default))
+            present(ac, animated: true)
+            return
+        }
+        
+        
+        let parameters: [String: String?] = [
+            "uuid": UUID().uuidString,
+            "timestamp": formatter.string(from: now),
+            "email": email,
+            "location": code,
+            "surname": surname
+        ]
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        
+        guard let httpbody = try? JSONSerialization.data(withJSONObject: parameters, options: []) else {
+            return
+        }
+        request.httpBody = httpbody;
+        
+        let session = URLSession.shared
+        session.dataTask(with: request) { (data, response, error) in
+            guard let response = response else {
+                print("Cannot found the response")
+                return
+            }
+    
+            let myResponse = response as! HTTPURLResponse
+            print("Response code: ", myResponse.statusCode)
+            
+            if (myResponse.statusCode == 201) {
+                DispatchQueue.main.async { () -> Void in
+                    let ac = UIAlertController(title: "Signed in", message: "Successfully registered attendance", preferredStyle: .alert)
+                    ac.addAction(UIAlertAction(title: "Close", style: .default))
+                    self.present(ac, animated: true)
+                }
+            }
+        }.resume()
+    }
 }
 
 
@@ -122,11 +184,5 @@ extension ViewController : AVCaptureMetadataOutputObjectsDelegate {
         }
         
         avCaptureSession.startRunning()
-    }
-    
-    func found(code: String) {
-        let ac = UIAlertController(title: "Scanned", message: "we in this bitch", preferredStyle: .alert)
-        ac.addAction(UIAlertAction(title: "OK", style: .default))
-        present(ac, animated: true)
     }
 }
