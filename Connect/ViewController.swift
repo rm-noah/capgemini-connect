@@ -111,11 +111,8 @@ class ViewController: UIViewController {
     }
     
     func found(code: String) {
-        let now = Date()
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
-        formatter.timeZone = TimeZone(secondsFromGMT: 0)
-        print(formatter.string(from: now))
+        let today = Date()
+        let tomorrow = Calendar.current.date(byAdding: .day, value: 21, to: today)
         
         guard let url = URL(string: checkInEndpoint) else {
             print("CheckIn Endpoint invalid")
@@ -134,9 +131,9 @@ class ViewController: UIViewController {
         }
         
         
-        let parameters: [String: String?] = [
+        let parameters: [String: Any?] = [
             "uuid": UUID().uuidString,
-            "timestamp": formatter.string(from: now),
+            "timestamp": tomorrow?.timeIntervalSince1970,
             "email": email,
             "location": code,
             "surname": surname
