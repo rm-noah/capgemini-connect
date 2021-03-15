@@ -17,18 +17,23 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="6yf-lS-mVE">
-                                <rect key="frame" x="0.0" y="766" width="414" height="96"/>
+                                <rect key="frame" x="0.0" y="798" width="414" height="64"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Capgemini Icon Shadow" translatesAutoresizingMaskIntoConstraints="NO" id="UNs-US-zIO">
-                                        <rect key="frame" x="175" y="0.0" width="64" height="64"/>
-                                    </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5B7-Nr-BKB">
-                                        <rect key="frame" x="149" y="66" width="116" height="30"/>
-                                        <state key="normal" title="Configure Profile"/>
-                                        <connections>
-                                            <action selector="showView" destination="BYZ-38-t0r" eventType="touchUpInside" id="7i9-fn-Xvf"/>
-                                        </connections>
-                                    </button>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="RYw-pM-4sd">
+                                        <rect key="frame" x="133" y="0.0" width="148" height="64"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Capgemini Icon Shadow" translatesAutoresizingMaskIntoConstraints="NO" id="UNs-US-zIO">
+                                                <rect key="frame" x="0.0" y="0.0" width="64" height="64"/>
+                                            </imageView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dfv-Ir-vbw">
+                                                <rect key="frame" x="84" y="0.0" width="64" height="64"/>
+                                                <state key="normal" image="Profile icon"/>
+                                                <connections>
+                                                    <action selector="showView" destination="BYZ-38-t0r" eventType="touchUpInside" id="KXG-VO-Uvx"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Loading camera..." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VR1-xE-qaR">
@@ -235,6 +240,7 @@
     </scenes>
     <resources>
         <image name="Capgemini Icon Shadow" width="64" height="64"/>
+        <image name="Profile icon" width="64" height="64"/>
         <image name="arrowshape.turn.up.left.fill" catalog="system" width="128" height="106"/>
         <image name="paperplane.fill" catalog="system" width="128" height="118"/>
     </resources>
