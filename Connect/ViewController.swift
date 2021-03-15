@@ -166,6 +166,12 @@ class ViewController: UIViewController {
                     ac.addAction(UIAlertAction(title: "Close", style: .default))
                     self.present(ac, animated: true)
                 }
+            } else {
+                DispatchQueue.main.async { () -> Void in
+                    let ac = UIAlertController(title: "Failed to Sign-In", message: "An unexpected error occurred", preferredStyle: .alert)
+                    ac.addAction(UIAlertAction(title: "Close", style: .default))
+                    self.present(ac, animated: true)
+                }
             }
         }.resume()
     }
