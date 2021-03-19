@@ -50,7 +50,7 @@ class ViewController: UIViewController {
                 self.avCaptureSession.addOutput(metadataOutput)
                 
                 metadataOutput.setMetadataObjectsDelegate(self, queue: DispatchQueue.main)
-                metadataOutput.metadataObjectTypes = [.ean8, .ean13, .pdf417, .qr]
+                metadataOutput.metadataObjectTypes = [.qr]
             } else {
                 self.failed()
                 return
