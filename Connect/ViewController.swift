@@ -99,6 +99,11 @@ class ViewController: UIViewController {
         avCaptureSession = nil
     }
     
+    func validateQRCode(code: String) -> Bool {
+        let codeRegex = "^((\\w)+-{1})+\\d+$"
+        return NSPredicate(format: "SELF MATCHES %@", codeRegex).evaluate(with: code)
+    }
+    
     @IBAction func showView() {
         presentRegistrationView()
     }
@@ -183,7 +188,13 @@ extension ViewController : AVCaptureMetadataOutputObjectsDelegate {
             guard let readableObject = metadataObject as? AVMetadataMachineReadableCodeObject else { return }
             guard let stringValue = readableObject.stringValue else { return }
             AudioServicesPlaySystemSound(SystemSoundID(kSystemSoundID_Vibrate))
-            found(code: stringValue)
+            if  (self.validateQRCode(code: stringValue)) {
+                found(code: stringValue)
+            } else {
+                let ac = UIAlertController(title: "Failed to Sign-In", message: "The code was not as expected", preferredStyle: .alert)
+                ac.addAction(UIAlertAction(title: "Close", style: .default))
+                self.present(ac, animated: true)
+            }
         }
         
         avCaptureSession.startRunning()
