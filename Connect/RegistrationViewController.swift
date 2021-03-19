@@ -67,6 +67,13 @@ class RegistrationViewController: UIViewController {
             return
         }
         
+        if (isInvalidName(name: forename) || isInvalidName(name: surname)) {
+            let alert = UIAlertController(title: "Notice", message: "Please remove all special characters from your forename and/or surname", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler: nil))
+            present(alert, animated: true)
+            return
+        }
+        
         if (!validateEmail(candidate: email)) {
             let alert = UIAlertController(title: "Notice", message: "Please enter a valid email address", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler: nil))
@@ -109,6 +116,11 @@ class RegistrationViewController: UIViewController {
                 viewToAnimate.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
             }, completion: nil)
         }
+    }
+    
+    func isInvalidName(name: String) -> Bool {
+        let invalidNameRegex = "[!@#$%^&*(),.?\":{}|<>-]"
+        return name.range(of: invalidNameRegex, options: .regularExpression, range: nil, locale: nil) != nil
     }
     
     func validateEmail(candidate: String) -> Bool {
