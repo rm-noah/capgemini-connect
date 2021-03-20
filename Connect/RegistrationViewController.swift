@@ -19,6 +19,7 @@ class RegistrationViewController: UIViewController {
     
     private let defaults = UserDefaults.standard
     private var canShowConfirmation = false
+    private let emailRegex = "0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,6 +48,10 @@ class RegistrationViewController: UIViewController {
         defaults.set(nil, forKey: "surname")
         defaults.set(nil, forKey: "email_address")
         defaults.set(nil, forKey: "uuid")
+        
+        forenameInput.text = ""
+        surnameInput.text = ""
+        emailInput.text = ""
     }
     
     @IBAction func saveProfile(_ sender: UIButton) {
@@ -56,7 +61,23 @@ class RegistrationViewController: UIViewController {
         let email: String = emailInput.text ?? ""
         
         if (forename.isEmpty || surname.isEmpty || email.isEmpty) {
-            print("Forename, Surname, or Email was nil")
+            let alert = UIAlertController(title: "Notice", message: "Please complete all fields", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler: nil))
+            present(alert, animated: true)
+            return
+        }
+        
+        if (isInvalidName(name: forename) || isInvalidName(name: surname)) {
+            let alert = UIAlertController(title: "Notice", message: "Please remove all special characters from your forename and/or surname", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler: nil))
+            present(alert, animated: true)
+            return
+        }
+        
+        if (!validateEmail(candidate: email)) {
+            let alert = UIAlertController(title: "Notice", message: "Please enter a valid email address", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler: nil))
+            present(alert, animated: true)
             return
         }
           
@@ -97,6 +118,15 @@ class RegistrationViewController: UIViewController {
         }
     }
     
+    func isInvalidName(name: String) -> Bool {
+        let invalidNameRegex = "[!@#$%^&*(),.?\":{}|<>-]"
+        return name.range(of: invalidNameRegex, options: .regularExpression, range: nil, locale: nil) != nil
+    }
+    
+    func validateEmail(candidate: String) -> Bool {
+     let emailRegex = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+     return NSPredicate(format: "SELF MATCHES %@", emailRegex).evaluate(with: candidate)
+    }
 
     /*
     // MARK: - Navigation
