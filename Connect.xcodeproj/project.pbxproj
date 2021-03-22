@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		016DD97C2608C9A200653F81 /* DisclaimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 016DD97B2608C9A200653F81 /* DisclaimerViewController.swift */; };
 		01C583812582799900F9BFB7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C583802582799900F9BFB7 /* AppDelegate.swift */; };
 		01C583832582799900F9BFB7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C583822582799900F9BFB7 /* SceneDelegate.swift */; };
 		01C583852582799900F9BFB7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C583842582799900F9BFB7 /* ViewController.swift */; };
@@ -33,6 +34,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		016DD97B2608C9A200653F81 /* DisclaimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisclaimerViewController.swift; sourceTree = "<group>"; };
 		01C5837D2582799900F9BFB7 /* Connect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Connect.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		01C583802582799900F9BFB7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		01C583822582799900F9BFB7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -109,6 +111,7 @@
 				01C583912582799A00F9BFB7 /* Info.plist */,
 				01C583892582799900F9BFB7 /* Connect.xcdatamodeld */,
 				01C583AB2588C7F500F9BFB7 /* RegistrationViewController.swift */,
+				016DD97B2608C9A200653F81 /* DisclaimerViewController.swift */,
 			);
 			path = Connect;
 			sourceTree = "<group>";
@@ -324,6 +327,7 @@
 				01C5838B2582799900F9BFB7 /* Connect.xcdatamodeld in Sources */,
 				01C583832582799900F9BFB7 /* SceneDelegate.swift in Sources */,
 				01C583AC2588C7F500F9BFB7 /* RegistrationViewController.swift in Sources */,
+				016DD97C2608C9A200653F81 /* DisclaimerViewController.swift in Sources */,
 				01C583B3258EB4A000F9BFB7 /* UITextFieldExt.swift in Sources */,
 				01C583AF258EAC6600F9BFB7 /* CollectionExt.swift in Sources */,
 			);

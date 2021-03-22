@@ -108,6 +108,13 @@ class ViewController: UIViewController {
         presentRegistrationView()
     }
     
+    @IBAction func showDisclaimer() {
+        guard let vc = storyboard?.instantiateViewController(identifier: "disclaimer_vc") as? DisclaimerViewController else {
+            return
+        }
+        present(vc, animated: true)
+    }
+    
     private func presentRegistrationView() {
         guard let vc = storyboard?.instantiateViewController(identifier: "registration_vc") as? RegistrationViewController else {
             return

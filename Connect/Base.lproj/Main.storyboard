@@ -22,9 +22,13 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="RYw-pM-4sd">
                                         <rect key="frame" x="133" y="0.0" width="148" height="64"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Capgemini Icon Shadow" translatesAutoresizingMaskIntoConstraints="NO" id="UNs-US-zIO">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TWE-IA-tJ2">
                                                 <rect key="frame" x="0.0" y="0.0" width="64" height="64"/>
-                                            </imageView>
+                                                <state key="normal" image="Capgemini Icon Shadow"/>
+                                                <connections>
+                                                    <action selector="showDisclaimer" destination="BYZ-38-t0r" eventType="touchUpInside" id="fc3-rd-AUo"/>
+                                                </connections>
+                                            </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dfv-Ir-vbw">
                                                 <rect key="frame" x="84" y="0.0" width="64" height="64"/>
                                                 <state key="normal" image="Profile icon"/>
@@ -236,6 +240,107 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jdW-gy-JOk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="928.98550724637687" y="137.94642857142856"/>
+        </scene>
+        <!--Disclaimer View Controller-->
+        <scene sceneID="seT-Ka-9nL">
+            <objects>
+                <viewController storyboardIdentifier="disclaimer_vc" id="75X-JT-XpA" customClass="DisclaimerViewController" customModule="Connect" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="d6p-sS-VTV">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="54a-sp-RuK">
+                                <rect key="frame" x="0.0" y="44" width="414" height="852"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="I5T-2e-ebC">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="633"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="7xH-g4-O2f">
+                                                <rect key="frame" x="20" y="20" width="374" height="593"/>
+                                                <subviews>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="-28" translatesAutoresizingMaskIntoConstraints="NO" id="j0i-QJ-3m1">
+                                                        <rect key="frame" x="0.0" y="0.0" width="374" height="67"/>
+                                                        <subviews>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4QU-sN-2kZ">
+                                                                <rect key="frame" x="0.0" y="0.0" width="26.5" height="67"/>
+                                                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="24"/>
+                                                                <color key="tintColor" red="0.92549019610000005" green="0.94117647059999998" blue="0.94509803920000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                                <state key="normal" image="arrowshape.turn.up.left.fill" catalog="system">
+                                                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large" weight="heavy"/>
+                                                                </state>
+                                                                <connections>
+                                                                    <action selector="dismissView" destination="75X-JT-XpA" eventType="touchUpInside" id="1p8-CO-99N"/>
+                                                                </connections>
+                                                            </button>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Where does your information go?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="22N-gE-vCj">
+                                                                <rect key="frame" x="-1.5" y="0.0" width="375.5" height="67"/>
+                                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
+                                                                <color key="textColor" red="0.92549019610000005" green="0.94117647059999998" blue="0.94509803920000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="esx-XC-nLX">
+                                                        <rect key="frame" x="0.0" y="79" width="374" height="172"/>
+                                                        <string key="text">When you create a profile your data is only stored on your device. Once you use the device to check in to a location, a portion of your information gets sent to the server so that Capgemini may contact you at a later date. Be assured that no one except for privelleged Capgemini individuals can access this.</string>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                        <color key="textColor" red="0.92549019610000005" green="0.94117647059999998" blue="0.94509803920000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How does Connect work?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i9F-HZ-QSX">
+                                                        <rect key="frame" x="0.0" y="263" width="374" height="33.5"/>
+                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
+                                                        <color key="textColor" red="0.92549019610000005" green="0.94117647059999998" blue="0.94509803920000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sRm-Gz-00a">
+                                                        <rect key="frame" x="0.0" y="308.5" width="374" height="107.5"/>
+                                                        <string key="text">This app does not track your location or use Bluetooth to interface with devices close by. When you send a check-in request, the only positionable data stored is the room that you have checked into.</string>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                        <color key="textColor" red="0.92549019610000005" green="0.94117647059999998" blue="0.94509803920000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Anything else I should know?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zjq-Iu-bLL">
+                                                        <rect key="frame" x="0.0" y="428" width="374" height="67"/>
+                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
+                                                        <color key="textColor" red="0.92549019610000005" green="0.94117647059999998" blue="0.94509803920000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fP5-LE-G83">
+                                                        <rect key="frame" x="0.0" y="507" width="374" height="86"/>
+                                                        <string key="text">As per data privacy guidelines, your check-ins are permanently deleted after 21 days. You can also request the data that we have on you by emailing connect@capgemini.com</string>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                        <color key="textColor" red="0.92549019610000005" green="0.94117647059999998" blue="0.94509803920000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                        <directionalEdgeInsets key="directionalLayoutMargins" top="20" leading="20" bottom="20" trailing="20"/>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="I5T-2e-ebC" secondAttribute="trailing" id="WsZ-ZR-yrz"/>
+                                    <constraint firstAttribute="bottom" secondItem="I5T-2e-ebC" secondAttribute="bottom" id="adW-eC-Ci6"/>
+                                    <constraint firstItem="I5T-2e-ebC" firstAttribute="leading" secondItem="54a-sp-RuK" secondAttribute="leading" id="e1h-e2-CLT"/>
+                                    <constraint firstItem="I5T-2e-ebC" firstAttribute="top" secondItem="54a-sp-RuK" secondAttribute="top" id="fIN-ww-B9E"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="OFc-Fy-1XJ"/>
+                        <color key="backgroundColor" red="0.0" green="0.43921568630000002" blue="0.67843137249999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="I5T-2e-ebC" firstAttribute="width" secondItem="d6p-sS-VTV" secondAttribute="width" id="C2E-X4-liT"/>
+                            <constraint firstItem="54a-sp-RuK" firstAttribute="top" secondItem="OFc-Fy-1XJ" secondAttribute="top" id="Kk8-eG-sVb"/>
+                            <constraint firstItem="54a-sp-RuK" firstAttribute="trailing" secondItem="OFc-Fy-1XJ" secondAttribute="trailing" id="MhY-aj-H1d"/>
+                            <constraint firstItem="54a-sp-RuK" firstAttribute="leading" secondItem="OFc-Fy-1XJ" secondAttribute="leading" id="YYY-eD-I8v"/>
+                            <constraint firstAttribute="bottom" secondItem="54a-sp-RuK" secondAttribute="bottom" id="gzE-ir-Kkj"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ga8-c3-Zvw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1665" y="138"/>
         </scene>
     </scenes>
     <resources>
